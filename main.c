@@ -8,6 +8,7 @@ int	main(int argc, char **argv)
 	int	fd;
 	int	i;
 
+	fd = 0;
 	if (argc >= 2)
 		fd = open(argv[1], O_RDONLY);	
 	//else
@@ -16,7 +17,7 @@ int	main(int argc, char **argv)
 		//return (0);
 	//}
 	i = 0;
-	while (get_next_line(0, &(line)) > 0)
+	while (get_next_line(fd, &(line)) > 0)
 		ft_putendl(line);
 	return (0);
 }
