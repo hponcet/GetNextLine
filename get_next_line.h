@@ -17,5 +17,6 @@
 
 int	get_next_line(int const fd, char **line);
 int	ft_afternext(char **afternext, char **line);
+void	ft_tormoilzboub(char *buf, int eof, char **line, char **afternext);
 
 #endif

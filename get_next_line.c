@@ -18,8 +18,9 @@ int		get_next_line(int const fd, char **line)
 	char		*buf;
 	int			eof;
 	static char	*afternext;
-	char		*beforenext;
 
+	if (fd < 0 || fd > 98 || fd == 1)
+		return (-1);
 	buf = ft_strnew(BUFF_SIZE + 1);
 	line[0] = ft_strnew(0);
 	if (ft_afternext(&afternext, line) > 0)
@@ -28,16 +29,14 @@ int		get_next_line(int const fd, char **line)
 	{
 		if ((eof = ft_cindex(buf, '\n')) >= 0)
 		{
-			beforenext = ft_strsub(buf, 0, eof);
-			line[0] = ft_strjoin(line[0], beforenext);
-			free(beforenext);
-			afternext = ft_strdup(buf + eof + 1);
-			free(buf);
+			ft_tormoilzboub(buf, eof, line, &(afternext));
 			return (1);
 		}
 		line[0] = ft_strjoin(line[0], buf);
 		ft_bzero(buf, BUFF_SIZE);
 	}
+	if (line[0][0])
+		return (1);
 	if ((read(fd, buf, BUFF_SIZE)) < 0 || line == NULL)
 		return (-1);
 	return (0);
@@ -68,4 +67,16 @@ int		ft_afternext(char **afternext, char **line)
 		}
 	}
 	return (0);
+}
+
+void		ft_tormoilzboub(char *buf, int eof, char **line, char **afternext)
+{
+	char	*beforenext;
+
+	beforenext = ft_strsub(buf, 0, eof);
+	line[0] = ft_strjoin(line[0], beforenext);
+	free(beforenext);
+	afternext[0] = ft_strdup(buf + eof + 1);
+	free(buf);
+	return ;
 }
