@@ -6,7 +6,7 @@
 /*   By: hponcet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/13 17:59:47 by hponcet           #+#    #+#             */
-/*   Updated: 2016/01/18 20:42:25 by hponcet          ###   ########.fr       */
+/*   Updated: 2016/02/11 13:33:11 by hponcet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ int		ft_afternext(char **afternext, char **line)
 	return (0);
 }
 
-void		ft_tormoilzboub(char *buf, int eof, char **line, char **afternext)
+void	ft_tormoilzboub(char *buf, int eof, char **line, char **afternext)
 {
 	char	*beforenext;
 

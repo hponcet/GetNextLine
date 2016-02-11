@@ -6,9 +6,10 @@
 /*   By: hponcet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/22 16:00:12 by hponcet           #+#    #+#             */
-/*   Updated: 2015/12/22 23:19:08 by hponcet          ###   ########.fr       */
+/*   Updated: 2016/02/11 12:50:42 by hponcet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
 int		ft_rootsquare(int n)
@@ -18,7 +19,7 @@ int		ft_rootsquare(int n)
 	i = 1;
 	if (n == 0)
 		return (0);
-	while (i < (n / 2))	
+	while (i < (n / 2))
 	{
 		if ((i * i) >= n)
 			return (ft_abs(i));
