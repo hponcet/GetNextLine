@@ -6,7 +6,7 @@
 /*   By: hponcet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/13 17:59:47 by hponcet           #+#    #+#             */
-/*   Updated: 2016/02/11 13:33:11 by hponcet          ###   ########.fr       */
+/*   Updated: 2016/03/30 11:23:04 by hponcet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int		get_next_line(int const fd, char **line)
 	int			eof;
 	static char	*afternext;
 
-	if (fd < 0 || fd > 98 || fd == 1)
+	if (fd < 0 || fd > 255 || fd == 1)
 		return (-1);
 	buf = ft_strnew(BUFF_SIZE + 1);
 	line[0] = ft_strnew(0);
@@ -27,7 +27,7 @@ int		get_next_line(int const fd, char **line)
 		return (1);
 	while ((read(fd, buf, BUFF_SIZE)) > 0)
 	{
-		if ((eof = ft_cindex(buf, '\n')) >= 0)
+		if ((eof = ft_cindex(buf, ';')) >= 0)
 		{
 			ft_tormoilzboub(buf, eof, line, &(afternext));
 			return (1);
@@ -49,7 +49,7 @@ int		ft_afternext(char **afternext, char **line)
 
 	if (*afternext != NULL)
 	{
-		i = ft_cindex(*afternext, '\n');
+		i = ft_cindex(*afternext, ';');
 		if (i >= 0)
 		{
 			line[0] = ft_strsub(*afternext, 0, i);
